@@ -1,6 +1,19 @@
 #ifndef NAC_H_   /* Include guard */
 #define NAC_H_
 
+enum Player { Naught, Cross }; 
+
+typedef gameState *Game; 
+
+bool playerHasWon(Player p, Game g);
+bool playerHasLost(Player p, Game g); 
+bool gameIsOver(Game g); 
+void enterMove(Game g, Player p , int x, int y); 
+bool validMove(Game g, Player p, int x, int y);
+Game newGame(); 
+void endGame(Game g); 
+Player PlayersTurn(Game g); 
+
 /*
 Structs that i wil need 
 
