@@ -60,6 +60,42 @@ bool gameIsOver(Game g) {
     return (g->emptySlots == 0) ? true : false; 
 }
 
+bool playerHasWon(Player p, Game g) {
+    // check centre - 4 cases
+    if (pointExists(g, p, 1, 1)) {
+        if (pointExists(g, p , 0, 0) && pointExists(g, p, 2, 2)) {
+            return true;
+        }
+        if (pointExists(g, p , 2, 0) && pointExists(g, p, 2, 0)) {
+            return true;
+        }
+        if (pointExists(g, p , 0, 1) && pointExists(g, p, 2, 1)) {
+            return true;
+        }
+        if (pointExists(g, p , 1, 2) && pointExists(g, p, 1, 0)) {
+            return true;
+        }
+    }
+    // check outskirts - 4 cases
+    if (pointExists(g, p, 1, 0) && pointExists(g, p, 2, 0) && pointExists(g, p, 0, 0)) {
+        return true;
+    }
+    if (pointExists(g, p, 1, 2) && pointExists(g, p, 0, 2) && pointExists(g, p, 2, 2)) {
+        return true;
+    }
+    if (pointExists(g, p, 0, 0) && pointExists(g, p, 0, 1) && pointExists(g, p, 0, 2)) {
+        return true;
+    }
+    if (pointExists(g, p, 2, 0) && pointExists(g, p, 2, 1) && pointExists(g, p, 2, 2)) {
+        return true;
+    }
+    return false; 
+
+}
+
+static pointExists(Game g, Player p, int x, int y) {
+    return (g->tableRep[y][x] == p); 
+}
 
 
 
