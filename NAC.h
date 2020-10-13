@@ -1,18 +1,20 @@
-#ifndef NAC_H_   /* Include guard */
-#define NAC_H_
+#ifndef NAC_H
+#define NAC_H
 
-enum Player { Naught, Cross }; 
+#include <stdbool.h>
 
-typedef gameState *Game; 
+typedef struct gameState *Game; 
+typedef enum { Naught, Cross, None=-1 } Player; 
 
-bool playerHasWon(Player p, Game g);
+bool player(int player, Game g);
 bool gameIsOver(Game g); 
-void enterMove(Game g, Player p , int x, int y); 
-bool validMove(Game g, Player p, int x, int y);
-Game newGame(); 
+void enterMove(Game g, Player p, int x, int y); 
+bool validMove(Game g, int x, int y);
+Game newGame(Player p); 
 void endGame(Game g); 
 Player PlayersTurn(Game g); 
 
+#endif
 /*
 Structs that i wil need 
 
