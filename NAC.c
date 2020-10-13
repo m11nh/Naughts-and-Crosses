@@ -41,3 +41,26 @@ void endGame(Game g) {
     // frees the game itself
     free(g); 
 }
+
+void enterMove(Game g, Player p, int x, int y) {
+    if (g->tableRep[y][x] != -1) {
+        g->tableRep[y][x] = p; 
+        g->emptySlots--; 
+    }
+}
+
+bool validMove(Game g, Player p, int x, int y) {
+    if (g->tableRep[y][x] != -1) {
+        return false; 
+    }
+    return true;
+}
+
+bool gameIsOver(Game g) {
+    return (g->emptySlots == 0) ? true : false; 
+}
+
+
+
+
+
