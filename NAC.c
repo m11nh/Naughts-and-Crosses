@@ -12,17 +12,18 @@ struct gameState {
 }; 
 
 // helper static functions declarations
+static bool pointExists(Game g, Player p, int x, int y);
 
 // main functions
 Game newGame(Player playerStarting) {
-    Game g = malloc(sizeof(*Game)); 
+    Game g = malloc(sizeof(*g)); 
 
     // allocates memory to a tableSize x tableSize game of Naughts and Crosses
     g->tableRep = malloc(sizeof(int *) * tableSize); 
-    for (i=0; i < tableSize; i++) {
+    for (int i=0; i < tableSize; i++) {
         g->tableRep[i] = malloc(sizeof(int) * tableSize); 
         // sets the contents of the table to -1
-        for (j = 0; j < tableSize; j++) {
+        for (int j = 0; j < tableSize; j++) {
             g->tableRep[i][j] = -1; 
         }
     }
@@ -34,7 +35,7 @@ Game newGame(Player playerStarting) {
 
 void endGame(Game g) {
     // free the contents of the table
-    for (i = 0; i < tableSize; i++) {
+    for (int i = 0; i < tableSize; i++) {
         free(g->tableRep[i]); 
     }
     free(g->tableRep); 
@@ -49,7 +50,7 @@ void enterMove(Game g, Player p, int x, int y) {
     }
 }
 
-bool validMove(Game g, Player p, int x, int y) {
+bool validMove(Game g, int x, int y) {
     if (g->tableRep[y][x] != -1) {
         return false; 
     }
@@ -63,16 +64,16 @@ bool gameIsOver(Game g) {
 bool playerHasWon(Player p, Game g) {
     // check centre - 4 cases
     if (pointExists(g, p, 1, 1)) {
-        if (pointExists(g, p , 0, 0) && pointExists(g, p, 2, 2)) {
+        if (pointExists(g, p, 0, 0) && pointExists(g, p, 2, 2)) {
             return true;
         }
-        if (pointExists(g, p , 2, 0) && pointExists(g, p, 2, 0)) {
+        if (pointExists(g, p, 2, 0) && pointExists(g, p, 2, 0)) {
             return true;
         }
-        if (pointExists(g, p , 0, 1) && pointExists(g, p, 2, 1)) {
+        if (pointExists(g, p, 0, 1) && pointExists(g, p, 2, 1)) {
             return true;
         }
-        if (pointExists(g, p , 1, 2) && pointExists(g, p, 1, 0)) {
+        if (pointExists(g, p, 1, 2) && pointExists(g, p, 1, 0)) {
             return true;
         }
     }
@@ -93,8 +94,12 @@ bool playerHasWon(Player p, Game g) {
 
 }
 
-static pointExists(Game g, Player p, int x, int y) {
+static bool pointExists(Game g, Player p, int x, int y) {
     return (g->tableRep[y][x] == p); 
+}
+
+int PlayersTurn(Game g) {
+    return g->playerTurn; 
 }
 
 
