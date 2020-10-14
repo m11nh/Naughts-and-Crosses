@@ -62,36 +62,34 @@ bool gameIsOver(Game g) {
 }
 
 bool playerHasWon(Player p, Game g) {
-    // check centre - 4 cases
-    if (pointExists(g, p, 1, 1)) {
-        if (pointExists(g, p, 0, 0) && pointExists(g, p, 2, 2)) {
-            return true;
+    int horiz, vert, left_diag, right_diag = true; 
+    for (int i = 0; i < 3; i++) {
+        // horizontal and vertical cases    
+        for (int j = 0; j < 3; j++) {
+            if (!pointExists(g, p, i, j)) {
+                horiz = false; 
+            }
+            if (!pointExists(g, p, j, i)) {
+                vert = false; 
+            }
         }
-        if (pointExists(g, p, 2, 0) && pointExists(g, p, 2, 0)) {
-            return true;
+
+        // left_diagoncal case
+        if (!pointExists(g, p, i, i)) {
+            left_diag = false; 
         }
-        if (pointExists(g, p, 0, 1) && pointExists(g, p, 2, 1)) {
-            return true;
+        if (!pointExists(g, p, i, 2 - i)) {
+            right_diag = false; 
         }
-        if (pointExists(g, p, 1, 2) && pointExists(g, p, 1, 0)) {
-            return true;
+
+        // final return
+        if (horiz || vert || left_diag || right_diag) {
+            return true; 
         }
-    }
-    // check outskirts - 4 cases
-    if (pointExists(g, p, 1, 0) && pointExists(g, p, 2, 0) && pointExists(g, p, 0, 0)) {
-        return true;
-    }
-    if (pointExists(g, p, 1, 2) && pointExists(g, p, 0, 2) && pointExists(g, p, 2, 2)) {
-        return true;
-    }
-    if (pointExists(g, p, 0, 0) && pointExists(g, p, 0, 1) && pointExists(g, p, 0, 2)) {
-        return true;
-    }
-    if (pointExists(g, p, 2, 0) && pointExists(g, p, 2, 1) && pointExists(g, p, 2, 2)) {
-        return true;
+        horiz = true; 
+        vert = true; 
     }
     return false; 
-
 }
 
 static bool pointExists(Game g, Player p, int x, int y) {
