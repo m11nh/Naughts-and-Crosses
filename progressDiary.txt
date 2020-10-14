@@ -1,5 +1,5 @@
 Date     |   Hours   |   Activity
-13/20/21 |           | 
+13/20/21 |     2     |   finish main iteration of functions, started refactoring
 
 Plan
 * figure out and plan a way to create a testing file - test driven development

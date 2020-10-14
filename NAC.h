@@ -4,7 +4,8 @@
 #include <stdbool.h>
 
 typedef struct gameState *Game; 
-typedef enum { Naught, Cross, None=-1 } Player; 
+typedef enum { Naught, Cross, None =-1 } Player; 
+typedef enum { Naught, Cross, None = -1 } Move; 
 
 bool player(int player, Game g);
 bool gameIsOver(Game g); 
@@ -13,6 +14,7 @@ bool validMove(Game g, int x, int y);
 Game newGame(Player p); 
 void endGame(Game g); 
 Player PlayersTurn(Game g); 
+Move getMove(Game g, int x, int y); 
 
 #endif
 /*

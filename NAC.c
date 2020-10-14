@@ -15,6 +15,10 @@ struct gameState {
 static bool pointExists(Game g, Player p, int x, int y);
 
 // main functions
+Move getMove(Game g, int x, int y) {
+    return g->tableRep[y][x]; 
+}
+
 Game newGame(Player playerStarting) {
     Game g = malloc(sizeof(*g)); 
 
