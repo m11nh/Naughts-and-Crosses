@@ -15,6 +15,7 @@ Game newGame(Player p);
 void endGame(Game g); 
 Player PlayersTurn(Game g); 
 Move getMove(Game g, int x, int y); 
+int getEmptySlots(Game g); 
 
 #endif
 /*
