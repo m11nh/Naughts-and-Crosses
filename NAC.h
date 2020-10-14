@@ -3,6 +3,8 @@
 
 #include <stdbool.h>
 
+#define tableSize 3
+
 typedef struct gameState *Game; 
 typedef enum { Naught, Cross, None =-1 } Player; 
 typedef enum { Naught, Cross, None = -1 } Move; 
@@ -13,7 +15,7 @@ void enterMove(Game g, Player p, int x, int y);
 bool validMove(Game g, int x, int y);
 Game newGame(Player p); 
 void endGame(Game g); 
-Player PlayersTurn(Game g); 
+Player getPlayerTurn(Game g); 
 Move getMove(Game g, int x, int y); 
 int getEmptySlots(Game g); 
 
