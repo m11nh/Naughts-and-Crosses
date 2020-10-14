@@ -32,7 +32,7 @@ static void testNewGame() {
 
 static void testEnterMove() {
     printf("Testing enterMove...\n"); 
-
+    
     printf("enterMove tests passed!\n"); 
 } 
 
