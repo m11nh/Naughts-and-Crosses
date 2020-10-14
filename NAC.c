@@ -3,8 +3,6 @@
 
 #include "NAC.h"
 
-#define tableSize 3
-
 struct gameState {
     int playerTurn; 
     int **tableRep; 
@@ -104,7 +102,7 @@ static bool pointExists(Game g, Player p, int x, int y) {
     return (g->tableRep[y][x] == p); 
 }
 
-int PlayersTurn(Game g) {
+int getPlayerTurn(Game g) {
     return g->playerTurn; 
 }
 
