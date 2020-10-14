@@ -17,7 +17,7 @@ int getEmptySlots(Game g) {
     return g->emptySlots; 
 }
 
-Move getMove(Game g, int x, int y) {
+Player getMove(Game g, int x, int y) {
     return g->tableRep[y][x]; 
 }
 
@@ -37,6 +37,7 @@ Game newGame(Player playerStarting) {
     // set initial player turn 
     g->playerTurn = playerStarting; 
     g->emptySlots = tableSize * tableSize; 
+    return g; 
 }
 
 void endGame(Game g) {
