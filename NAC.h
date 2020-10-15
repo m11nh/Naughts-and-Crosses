@@ -17,6 +17,7 @@ void endGame(Game g);
 Player getPlayerTurn(Game g); 
 Player getMove(Game g, int x, int y); 
 int getEmptySlots(Game g); 
+bool playerHasWon(Player p, Game g); 
 
 #endif
 /*
