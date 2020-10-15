@@ -54,7 +54,8 @@ void enterMove(Game g, Player p, int x, int y) {
     if ((g->playerTurn == p) && (g->tableRep[y][x] == -1)) {
         g->tableRep[y][x] = p; 
         g->emptySlots--; 
-    }
+    } 
+    g->playerTurn = (g->playerTurn == Naught) ? Cross : Naught; 
 }
 
 bool validMove(Game g, int x, int y) {
@@ -69,7 +70,7 @@ bool gameIsOver(Game g) {
 }
 
 bool playerHasWon(Player p, Game g) {
-    int horiz, vert, left_diag, right_diag = true; 
+    int horiz = true, vert = true, left_diag = true, right_diag = true; 
     for (int i = 0; i < 3; i++) {
         // horizontal and vertical cases    
         for (int j = 0; j < 3; j++) {
@@ -90,13 +91,17 @@ bool playerHasWon(Player p, Game g) {
         }
 
         // final return
-        if (horiz || vert || left_diag || right_diag) {
+        if (horiz || vert) {
             return true; 
         }
         horiz = true; 
         vert = true; 
     }
-    return false; 
+    if (left_diag || right_diag) {
+        return true; 
+    } else {
+        return false; 
+    }
 }
 
 static bool pointExists(Game g, Player p, int x, int y) {
