@@ -51,7 +51,7 @@ void endGame(Game g) {
 }
 
 void enterMove(Game g, Player p, int x, int y) {
-    if (g->tableRep[y][x] == -1) {
+    if ((g->playerTurn == p) && (g->tableRep[y][x] == -1)) {
         g->tableRep[y][x] = p; 
         g->emptySlots--; 
     }
