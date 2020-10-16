@@ -8,12 +8,16 @@ void displayBoard(Game g) {
         for (int j = 0; j < tableSize; j++) {
             int move = getMove(g, j, i); 
             if (move == Naught) {
-                printf(" X "); 
+                printf("| X |"); 
             } else if (move == Cross) {
-                printf(" O "); 
+                printf("| O |"); 
             } else {
-                printf("   "); 
+                printf("|   |"); 
             }
+        }
+        printf("\n"); 
+        for (int x = 0; x < tableSize; x++) {
+            printf("_____"); 
         }
         printf("\n"); 
     }
