@@ -2,9 +2,11 @@ Date     |   Hours   |   Activity
 13/20/21 |     2     |   finish main iteration of functions, started refactoring
 14/20/21 |     2     |   finished coding, started on testing
 15/20/21 |     2     |   completed testing and fixed up some errors in code
+16/20/21 |     2     |   fixed up contributions, completed first iteration view and game run
 
 Plan
-- fix up contributions not tracking
-- learn about makefiles
-- get started on planning the view part of the game
-test
+- print a better looking board
+- deal with invalid inputs
+- look for other issues and fix
+- perhaps can do for boards of different sizes
+
