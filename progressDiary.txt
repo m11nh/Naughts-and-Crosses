@@ -7,3 +7,4 @@ Plan
 - fix up contributions not tracking
 - learn about makefiles
 - get started on planning the view part of the game
+test
