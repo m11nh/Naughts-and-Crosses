@@ -1,8 +1,9 @@
 Date     |   Hours   |   Activity
 13/20/21 |     2     |   finish main iteration of functions, started refactoring
 14/20/21 |     2     |   finished coding, started on testing
+15/20/21 |     2     |   completed testing and fixed up some errors in code
 
 Plan
-* complete testing 
-    - find a better way to abstract testing functions
-* create a makefile
+- fix up contributions not tracking
+- learn about makefiles
+- get started on planning the view part of the game
