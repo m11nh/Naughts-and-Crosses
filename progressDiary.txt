@@ -3,10 +3,24 @@ Date     |   Hours   |   Activity
 14/20/21 |     2     |   finished coding, started on testing
 15/20/21 |     2     |   completed testing and fixed up some errors in code
 16/20/21 |     2     |   fixed up contributions, completed first iteration view and game run
+17/20/21 |     2     |   Completed first iteration of code, currently refactoring and thinking about things to add
 
 Plan
-- print a better looking board
-- deal with invalid inputs
-- look for other issues and fix
-- perhaps can do for boards of different sizes
+
+major issues
+- invalid inputs    
+    - numbers out of board size 
+    - letters
+- user view, how do i know what x and y is to enter
+
+usability
+- have an intro to the game 
+- option to quit game
+
+code quality
+- documentation 
+- refactoring
+
+extras
+- higher sized board
 
