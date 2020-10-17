@@ -7,19 +7,23 @@ void displayBoard(Game g) {
     for (int i = 0; i < tableSize; i++) {
         for (int j = 0; j < tableSize; j++) {
             int move = getMove(g, j, i); 
-            if (move == Naught) {
-                printf("| X |"); 
-            } else if (move == Cross) {
-                printf("| O |"); 
+            char moveChar = ' '; 
+            if ((move == Naught) || (move == Cross)) {
+                moveChar = (move == Naught) ? 'O' : 'X'; 
+            } 
+            if (j == tableSize - 1) {
+                printf("  %c  ", moveChar);
             } else {
-                printf("|   |"); 
+                printf("  %c  |", moveChar);
             }
         }
         printf("\n"); 
-        for (int x = 0; x < tableSize; x++) {
-            printf("_____"); 
+        if(i != tableSize - 1) {
+            for (int x = 0; x < tableSize; x++) {
+                printf("______"); 
+            }
         }
-        printf("\n"); 
+        printf("\n\n"); 
     }
 }
 
