@@ -6,6 +6,15 @@
 
 void displayBoard(Game g) {
     for (int i = 0; i < tableSize; i++) {
+        if (i == 0) {
+            printf("     %d  ", i); 
+        } else {
+            printf("   %d   ", i); 
+        }
+    }
+    printf("\n"); 
+    for (int i = 0; i < tableSize; i++) {
+        printf("%d  ", i); 
         for (int j = 0; j < tableSize; j++) {
             int move = getCoordState(g, j, i); 
             char moveChar = ' '; 
@@ -18,7 +27,7 @@ void displayBoard(Game g) {
                 printf("  %c  |", moveChar);
             }
         }
-        printf("\n"); 
+        printf("\n   "); 
         if(i != tableSize - 1) {
             for (int x = 0; x < tableSize; x++) {
                 printf("______"); 
@@ -28,14 +37,28 @@ void displayBoard(Game g) {
     }
 }
 
-void getMove(Player p, Move *m) {
-    char currPlayerStr[10]; 
+bool getMove(Player p, Move *m) {
+    char currPlayerStr[10], x[10], y[10]; 
+    char t; 
     getPlayerString(p, currPlayerStr); 
     printf("%s, please enter in your move:\n", currPlayerStr);
     printf("x: ");
-    scanf("%d", &(m->x)); 
+    if ((fgets(x, 10, stdin) == NULL) || (sscanf(x, "%d", &(m->x)) != 1)) {
+        sscanf(x, "%c", &t); 
+        if (t == 'q') {
+            exit(EXIT_SUCCESS); 
+        }
+        return false; 
+    }
     printf("y: "); 
-    scanf("%d", &(m->y));  
+    if ((fgets(y, 10, stdin) == NULL) || (sscanf(y, "%d", &(m->y)) != 1)) {
+        sscanf(y, "%c", &t); 
+        if (t == 'q') {
+            exit(EXIT_SUCCESS); 
+        }
+        return false; 
+    }
+    return true; 
 }
 
 void getPlayerString(Player p, char *str) {
@@ -49,7 +72,7 @@ void getPlayerString(Player p, char *str) {
 }
 
 void showInvalidMoveError() {
-    printf("Please Enter in a valid move.\n"); 
+    printf("Move can only be an integer between 0 and %d, and only on empty square\n", tableSize); 
 }
 
 void showEndGameMsg(Game g) {

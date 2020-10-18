@@ -6,17 +6,16 @@ Date     |   Hours   |   Activity
 17/20/21 |     2     |   Completed first iteration of code, currently refactoring and thinking about things to add
 18/20/20 |           | 
 
+next 
+- verbose and non verbose mode where  numbers are displayed
+
 Plan
 
 major issues
-- invalid inputs    
-    - numbers out of board size 
-    - letters
-- user view, how do i know what x and y is to enter
 
 usability
 - have an intro to the game 
-- option to quit game
+    - show the board initially
 
 code quality
 - documentation 
@@ -24,4 +23,7 @@ code quality
 
 extras
 - higher sized board
+
+testing
+- redo the testing 
 

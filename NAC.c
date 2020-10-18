@@ -59,6 +59,9 @@ void enterMove(Game g, Move m) {
 }
 
 bool validMove(Game g, Move m) {
+    if ((m.y >= tableSize) || (m.y < 0) || (m.x >= tableSize) || (m.x < 0)) {
+        return false; 
+    }
     if (g->tableRep[m.y][m.x] != -1) {
         return false; 
     }

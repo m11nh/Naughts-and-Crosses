@@ -19,8 +19,6 @@ bool validMove(Game g, Move m);
 Game newGame(Player p); 
 void endGame(Game g); 
 Player getPlayerTurn(Game g); 
-// this function doesn't really make sense. 
-// shoulde be get player who made move at a specific coordinate
 Player getCoordState(Game g, int x, int y); 
 int getEmptySlots(Game g); 
 Player getWinner(Game g); 
