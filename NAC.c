@@ -17,7 +17,7 @@ int getEmptySlots(Game g) {
     return g->emptySlots; 
 }
 
-Player getMove(Game g, int x, int y) {
+Player getCoordState(Game g, int x, int y) {
     return g->tableRep[y][x]; 
 }
 
@@ -50,24 +50,22 @@ void endGame(Game g) {
     free(g); 
 }
 
-void enterMove(Game g, Player p, int x, int y) {
-    if ((g->playerTurn == p) && (g->tableRep[y][x] == -1)) {
-        g->tableRep[y][x] = p; 
+void enterMove(Game g, Move m) {
+    if ((g->tableRep[m.y][m.x] == -1)) {
+        g->tableRep[m.y][m.x] = g->playerTurn; 
         g->emptySlots--; 
     } 
     g->playerTurn = (g->playerTurn == Naught) ? Cross : Naught; 
 }
 
-bool validMove(Game g, int x, int y) {
-    if (g->tableRep[y][x] != -1) {
+bool validMove(Game g, Move m) {
+    if (g->tableRep[m.y][m.x] != -1) {
         return false; 
     }
     return true;
 }
 
-bool gameIsOver(Game g) {
-    return (g->emptySlots == 0) ? true : false; 
-}
+
 
 bool playerHasWon(Player p, Game g) {
     int horiz = true, vert = true, left_diag = true, right_diag = true; 
@@ -104,12 +102,34 @@ bool playerHasWon(Player p, Game g) {
     }
 }
 
+bool gameIsOver(Game g) {
+    return ((g->emptySlots == 0) || playerHasWon(Naught, g) || playerHasWon(Cross, g)); 
+}
+
 static bool pointExists(Game g, Player p, int x, int y) {
     return (g->tableRep[y][x] == p); 
 }
 
 int getPlayerTurn(Game g) {
     return g->playerTurn; 
+}
+
+Player getWinner(Game g) {
+    if (playerHasWon(Naught, g)) {
+        return Naught; 
+    } else if (playerHasWon(Cross, g)) {
+        return Cross; 
+    } else {
+        return -1; 
+    }
+}
+
+bool gameIsDraw(Game g) {
+    if (!playerHasWon(Naught, g) && !playerHasWon(Cross, g) && (g->emptySlots == 0)) {
+        return true; 
+    } else {
+        return false; 
+    }
 }
 
 

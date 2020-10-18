@@ -5,18 +5,25 @@
 
 #define tableSize 3
 
+typedef struct Move {
+    int x; 
+    int y; 
+} Move; 
 typedef struct gameState *Game; 
 typedef enum { Naught, Cross, None =-1 } Player; 
 
 bool player(int player, Game g);
 bool gameIsOver(Game g); 
-void enterMove(Game g, Player p, int x, int y); 
-bool validMove(Game g, int x, int y);
+void enterMove(Game g, Move m); 
+bool validMove(Game g, Move m);
 Game newGame(Player p); 
 void endGame(Game g); 
 Player getPlayerTurn(Game g); 
-Player getMove(Game g, int x, int y); 
+// this function doesn't really make sense. 
+// shoulde be get player who made move at a specific coordinate
+Player getCoordState(Game g, int x, int y); 
 int getEmptySlots(Game g); 
-bool playerHasWon(Player p, Game g); 
+Player getWinner(Game g); 
+bool gameIsDraw(Game g); 
 
 #endif
