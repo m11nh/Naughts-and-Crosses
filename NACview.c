@@ -4,17 +4,23 @@
 
 #include "NACview.h"
 
-void displayBoard(Game g) {
-    for (int i = 0; i < tableSize; i++) {
-        if (i == 0) {
-            printf("     %d  ", i); 
-        } else {
-            printf("   %d   ", i); 
+void displayBoard(Game g, bool isVerbose) {
+    if (isVerbose) {
+        for (int i = 0; i < tableSize; i++) {
+            if (i == 0) {
+                printf("     %d  ", i); 
+            } else {
+                printf("   %d   ", i); 
+            }
         }
+        printf("\n"); 
     }
-    printf("\n"); 
     for (int i = 0; i < tableSize; i++) {
-        printf("%d  ", i); 
+        if (isVerbose) {
+            printf("%d  ", i); 
+        } else {
+            printf("    "); 
+        }
         for (int j = 0; j < tableSize; j++) {
             int move = getCoordState(g, j, i); 
             char moveChar = ' '; 

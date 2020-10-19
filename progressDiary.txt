@@ -4,7 +4,7 @@ Date     |   Hours   |   Activity
 15/20/21 |     2     |   completed testing and fixed up some errors in code
 16/20/21 |     2     |   fixed up contributions, completed first iteration view and game run
 17/20/21 |     2     |   Completed first iteration of code, currently refactoring and thinking about things to add
-18/20/20 |           | 
+18/20/20 |     2     |   completed refactoring and error handling, completed extra of viewing board numbers 
 
 next 
 - verbose and non verbose mode where  numbers are displayed

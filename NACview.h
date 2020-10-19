@@ -6,7 +6,7 @@
 #ifndef NACVIEW_h
 #define NACVIEW_H 
 
-void displayBoard(Game g); 
+void displayBoard(Game g, bool isVerbose); 
 bool getMove(Player p, Move *m); 
 void getPlayerString(Player p, char *str); 
 void showInvalidMoveError(); 
