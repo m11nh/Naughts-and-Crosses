@@ -1,29 +1,13 @@
 Date     |   Hours   |   Activity
-13/20/21 |     2     |   finish main iteration of functions, started refactoring
-14/20/21 |     2     |   finished coding, started on testing
-15/20/21 |     2     |   completed testing and fixed up some errors in code
-16/20/21 |     2     |   fixed up contributions, completed first iteration view and game run
-17/20/21 |     2     |   Completed first iteration of code, currently refactoring and thinking about things to add
-18/20/20 |     2     |   completed refactoring and error handling, completed extra of viewing board numbers 
+13/10/20 |     2     |   finish main iteration of functions, started refactoring
+14/10/20 |     2     |   finished coding, started on testing
+15/10/20 |     2     |   completed testing and fixed up some errors in code
+16/10/20 |     2     |   fixed up contributions, completed first iteration view and game run
+17/10/20 |     2     |   Completed first iteration of code, currently refactoring and thinking about things to add
+18/10/20 |     2     |   completed refactoring and error handling, completed extra of viewing board numbers 
+19/20/20 |     0.5   |   completed verbose functionality
+06/11/20 |     0.5   |   completed documentation
 
 next 
-- verbose and non verbose mode where  numbers are displayed
-
-Plan
-
-major issues
-
-usability
-- have an intro to the game 
-    - show the board initially
-
-code quality
-- documentation 
-- refactoring
-
-extras
-- higher sized board
-
-testing
-- redo the testing 
+- refactor the testing files
 
