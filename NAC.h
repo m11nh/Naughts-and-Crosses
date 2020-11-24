@@ -12,8 +12,6 @@ typedef struct Move {
 typedef struct gameState *Game; 
 typedef enum { Naught, Cross, None =-1 } Player; 
 
-bool player(int player, Game g);
-
 /*
     Returns True if game is over, otherwise false. 
 */ 
