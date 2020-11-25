@@ -3,7 +3,7 @@ CFLAGS = -Wall -Werror -g
 LDFlags = -Wall -Werror -g
 
 .PHONY: all 
-all: NACrun
+all: NACrun testNAC
 
 NACrun: NACrun.o NAC.o NACview.o
 NACrun.o: NACview.o NAC.o NACview.h
